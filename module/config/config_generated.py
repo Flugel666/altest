@@ -113,16 +113,75 @@ class GeneratedConfig:
 
     # Group `Emotion`
     Emotion_Mode = 'calculate'  # calculate, ignore, calculate_ignore
-    Emotion_Fleet1Value = 119
-    Emotion_Fleet1Record = datetime.datetime(2020, 1, 1, 0, 0)
-    Emotion_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
-    Emotion_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
-    Emotion_Fleet1Oath = False
-    Emotion_Fleet2Value = 119
-    Emotion_Fleet2Record = datetime.datetime(2020, 1, 1, 0, 0)
-    Emotion_Fleet2Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
-    Emotion_Fleet2Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
-    Emotion_Fleet2Oath = False
+
+    # Group `ResearchFarmingSetting`
+    ResearchFarmingSetting_OilLimit = 3000
+    ResearchFarmingSetting_ResearchSeries = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarmingSetting_ShipIndex = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarmingSetting_ExperienceIndex = 1  # 0, 1, 2
+    ResearchFarmingSetting_CheckInterval = 5
+    ResearchFarmingSetting_CurrentCampaignTimes = 0
+    ResearchFarmingSetting_OnepushNotify = True
+
+    # Group `ResearchFarm1Setting`
+    ResearchFarm1Setting_Enable = False
+    ResearchFarm1Setting_Campaign = '12-4'
+    ResearchFarm1Setting_Fleet1 = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarm1Setting_EmotionValue = 119
+    ResearchFarm1Setting_EmotionControlMethod = 'calculate'  # calculate, ignore, calculate_ignore
+    ResearchFarm1Setting_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
+    ResearchFarm1Setting_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
+    ResearchFarm1Setting_Fleet2 = 2  # 0, 1, 2, 3, 4, 5, 6
+
+    # Group `ResearchFarm2Setting`
+    ResearchFarm2Setting_Enable = False
+    ResearchFarm2Setting_Campaign = '12-4'
+    ResearchFarm2Setting_Fleet1 = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarm2Setting_EmotionValue = 119
+    ResearchFarm2Setting_EmotionControlMethod = 'calculate'  # calculate, ignore, calculate_ignore
+    ResearchFarm2Setting_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
+    ResearchFarm2Setting_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
+    ResearchFarm2Setting_Fleet2 = 2  # 0, 1, 2, 3, 4, 5, 6
+
+    # Group `ResearchFarm3Setting`
+    ResearchFarm3Setting_Enable = False
+    ResearchFarm3Setting_Campaign = '12-4'
+    ResearchFarm3Setting_Fleet1 = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarm3Setting_EmotionValue = 119
+    ResearchFarm3Setting_EmotionControlMethod = 'calculate'  # calculate, ignore, calculate_ignore
+    ResearchFarm3Setting_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
+    ResearchFarm3Setting_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
+    ResearchFarm3Setting_Fleet2 = 2  # 0, 1, 2, 3, 4, 5, 6
+
+    # Group `ResearchFarm4Setting`
+    ResearchFarm4Setting_Enable = False
+    ResearchFarm4Setting_Campaign = '12-4'
+    ResearchFarm4Setting_Fleet1 = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarm4Setting_EmotionValue = 119
+    ResearchFarm4Setting_EmotionControlMethod = 'calculate'  # calculate, ignore, calculate_ignore
+    ResearchFarm4Setting_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
+    ResearchFarm4Setting_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
+    ResearchFarm4Setting_Fleet2 = 2  # 0, 1, 2, 3, 4, 5, 6
+
+    # Group `ResearchFarm5Setting`
+    ResearchFarm5Setting_Enable = False
+    ResearchFarm5Setting_Campaign = '12-4'
+    ResearchFarm5Setting_Fleet1 = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarm5Setting_EmotionValue = 119
+    ResearchFarm5Setting_EmotionControlMethod = 'calculate'  # calculate, ignore, calculate_ignore
+    ResearchFarm5Setting_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
+    ResearchFarm5Setting_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
+    ResearchFarm5Setting_Fleet2 = 2  # 0, 1, 2, 3, 4, 5, 6
+
+    # Group `ResearchFarm6Setting`
+    ResearchFarm6Setting_Enable = False
+    ResearchFarm6Setting_Campaign = '12-4'
+    ResearchFarm6Setting_Fleet1 = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarm6Setting_EmotionValue = 119
+    ResearchFarm6Setting_EmotionControlMethod = 'calculate'  # calculate, ignore, calculate_ignore
+    ResearchFarm6Setting_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
+    ResearchFarm6Setting_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
+    ResearchFarm6Setting_Fleet2 = 2  # 0, 1, 2, 3, 4, 5, 6
 
     # Group `HpControl`
     HpControl_UseHpBalance = False
@@ -564,6 +623,12 @@ class GeneratedConfig:
     GuildCoin_Value = 0
     GuildCoin_Color = '^000000'
     GuildCoin_Record = datetime.datetime(2020, 1, 1, 0, 0)
+
+    # Group `ResearchPercent`
+    ResearchPercent_Value = 0
+    ResearchPercent_Limit = 100
+    ResearchPercent_Color = '^000000'
+    ResearchPercent_Record = datetime.datetime(2020, 1, 1, 0, 0)
 
     # Group `AutoRestart`
     AutoRestart_Enabled = False

@@ -15,6 +15,27 @@ Restart:
     FailureInterval: 0
     ServerUpdate: 00:00
 
+# ==================== ResearchFarm ====================
+ResearchFarm:
+  Campaign:
+    Event: campaign_main
+ResearchFarm2:
+  Campaign:
+    Event: campaign_main
+ResearchFarm3:
+  Campaign:
+    Event: campaign_main
+ResearchFarm4:
+  Campaign:
+    Event: campaign_main
+ResearchFarm5:
+  Campaign:
+    Event: campaign_main
+ResearchFarm6:
+  Campaign:
+    Event: campaign_main
+
+
 # ==================== Farm ====================
 
 Main:
@@ -478,3 +499,5 @@ Dashboard:
     Color: ^FFDD00
   GuildCoin:
     Color: ^AAAAAA
+  ResearchPercent:
+    Color: ^00AA00

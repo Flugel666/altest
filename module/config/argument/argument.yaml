@@ -215,28 +215,137 @@ Emotion:
   Mode:
     value: calculate
     option: [ calculate, ignore, calculate_ignore ]
-  Fleet1Value: 119
-  Fleet1Record:
-    value: 2020-01-01 00:00:00
-    display: disabled
+
+# ====================  ResearchFarming ====================
+ResearchFarmingSetting:
+  OilLimit: 3000
+  ResearchSeries:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  ShipIndex:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  ExperienceIndex:
+    value: 1
+    option: [ 0, 1, 2 ]
+  CheckInterval: 5
+  CurrentCampaignTimes: 0
+  OnepushNotify: true
+
+ResearchFarm1Setting:
+  Enable: false
+  Campaign: 12-4
+  Fleet1:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  EmotionValue: 119
+  EmotionControlMethod:
+    value: calculate
+    option: [ calculate, ignore, calculate_ignore ]
   Fleet1Control:
     value: prevent_yellow_face
     option: [ keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face ]
   Fleet1Recover:
     value: not_in_dormitory
     option: [ not_in_dormitory, dormitory_floor_1, dormitory_floor_2 ]
-  Fleet1Oath: false
-  Fleet2Value: 119
-  Fleet2Record:
-    value: 2020-01-01 00:00:00
-    display: disabled
-  Fleet2Control:
+  Fleet2:
+    value: 2
+    option: [ 0, 1, 2, 3, 4, 5, 6 ]
+ResearchFarm2Setting:
+  Enable: false
+  Campaign: 12-4
+  Fleet1:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  EmotionValue: 119
+  EmotionControlMethod:
+    value: calculate
+    option: [ calculate, ignore, calculate_ignore ]
+  Fleet1Control:
     value: prevent_yellow_face
     option: [ keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face ]
-  Fleet2Recover:
+  Fleet1Recover:
     value: not_in_dormitory
     option: [ not_in_dormitory, dormitory_floor_1, dormitory_floor_2 ]
-  Fleet2Oath: false
+  Fleet2:
+    value: 2
+    option: [ 0, 1, 2, 3, 4, 5, 6 ]
+ResearchFarm3Setting:
+  Enable: false
+  Campaign: 12-4
+  Fleet1:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  EmotionValue: 119
+  EmotionControlMethod:
+    value: calculate
+    option: [ calculate, ignore, calculate_ignore ]
+  Fleet1Control:
+    value: prevent_yellow_face
+    option: [ keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face ]
+  Fleet1Recover:
+    value: not_in_dormitory
+    option: [ not_in_dormitory, dormitory_floor_1, dormitory_floor_2 ]
+  Fleet2:
+    value: 2
+    option: [ 0, 1, 2, 3, 4, 5, 6 ]
+ResearchFarm4Setting:
+  Enable: false
+  Campaign: 12-4
+  Fleet1:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  EmotionValue: 119
+  EmotionControlMethod:
+    value: calculate
+    option: [ calculate, ignore, calculate_ignore ]
+  Fleet1Control:
+    value: prevent_yellow_face
+    option: [ keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face ]
+  Fleet1Recover:
+    value: not_in_dormitory
+    option: [ not_in_dormitory, dormitory_floor_1, dormitory_floor_2 ]
+  Fleet2:
+    value: 2
+    option: [ 0, 1, 2, 3, 4, 5, 6 ]
+ResearchFarm5Setting:
+  Enable: false
+  Campaign: 12-4
+  Fleet1:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  EmotionValue: 119
+  EmotionControlMethod:
+    value: calculate
+    option: [ calculate, ignore, calculate_ignore ]
+  Fleet1Control:
+    value: prevent_yellow_face
+    option: [ keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face ]
+  Fleet1Recover:
+    value: not_in_dormitory
+    option: [ not_in_dormitory, dormitory_floor_1, dormitory_floor_2 ]
+  Fleet2:
+    value: 2
+    option: [ 0, 1, 2, 3, 4, 5, 6 ]
+ResearchFarm6Setting:
+  Enable: false
+  Campaign: 12-4
+  Fleet1:
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  EmotionValue: 119
+  EmotionControlMethod:
+    value: calculate
+    option: [ calculate, ignore, calculate_ignore ]
+  Fleet1Control:
+    value: prevent_yellow_face
+    option: [ keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face ]
+  Fleet1Recover:
+    value: not_in_dormitory
+    option: [ not_in_dormitory, dormitory_floor_1, dormitory_floor_2 ]
+  Fleet2:
+    value: 2
+    option: [ 0, 1, 2, 3, 4, 5, 6 ]
 HpControl:
   UseHpBalance: false
   UseEmergencyRepair: false
@@ -920,6 +1029,13 @@ Medal:
   Record: 2020-01-01 00:00:00
 GuildCoin:
   Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+ResearchPercent:
+  Value: 0
+  Limit: 100
   Color:
     value: ^000000
     display: hide

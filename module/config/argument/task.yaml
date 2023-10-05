@@ -68,6 +68,77 @@ Farm:
       - StopCondition
       - Fleet
 
+# ==================== ResearchFarming ====================
+
+ResearchFarming:
+  menu: 'collapse'
+  page: 'setting'
+  tasks:
+    ResearchFarmingSetting:
+      - Scheduler
+      - ResearchFarmingSetting
+      - ResearchFarm1Setting
+      - ResearchFarm2Setting
+      - ResearchFarm3Setting
+      - ResearchFarm4Setting
+      - ResearchFarm5Setting
+      - ResearchFarm6Setting
+
+    ResearchFarm:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+    ResearchFarm2:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+    ResearchFarm3:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+    ResearchFarm4:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+    ResearchFarm5:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+    ResearchFarm6:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+
 # ==================== Event ====================
 
 Event:
