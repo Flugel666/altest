@@ -16,6 +16,8 @@ from module.notify import handle_notify
 from module.gg_handler.gg_handler import GGHandler
 
 g_current_task: str = ""
+g_config: AzurLaneConfig = None
+
 
 class AzurLaneAutoScript:
     stop_event: threading.Event = None
@@ -545,6 +547,10 @@ class AzurLaneAutoScript:
                 exit(1)
 
     def loop(self):
+        global g_config
+        if g_config is not None:
+            g_config = self.config
+
         self.gg_check()
         logger.set_file_logger(self.config_name)
         logger.info(f'Start scheduler loop: {self.config_name}')

@@ -393,7 +393,23 @@ class DockNew(UI):
                 continue
 
 
-class Dock(DockOld if globals().get("g_current_task", "") == "GemsFarming" else DockNew):
+def redirect_inherit_to_old() -> bool:
+    current_task = globals().get("g_current_task", "")
+    current_config = globals().get("g_config", None)
+
+    if current_task == "GemsFarming":
+        return True
+    elif current_task.find("Main") != -1:
+        return True
+    elif current_task.find("Event") != -1:
+        return True
+    else:
+        return False
+
+    return False
+
+
+class Dock(DockOld if redirect_inherit_to_old() else DockNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, DockOld):
             logger.info("use DockOld")
