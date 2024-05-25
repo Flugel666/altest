@@ -1,3 +1,4 @@
+import gl
 from module.base.timer import Timer
 from module.combat.assets import BATTLE_PREPARATION
 from module.equipment.equipment import Equipment
@@ -104,7 +105,7 @@ class ExerciseEquipmentNew(EquipmentChange):
         self._inactive_edit()
 
 
-class ExerciseEquipment(ExerciseEquipmentOld if globals().get("g_current_task", "") == "GemsFarming" else ExerciseEquipmentNew):
+class ExerciseEquipment(ExerciseEquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else ExerciseEquipmentNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, ExerciseEquipmentOld):
             logger.info("use ExerciseEquipmentOld")

@@ -10,6 +10,7 @@ from module.ui.assets import BACK_ARROW
 from module.ui.navbar import Navbar
 from module.ui.switch import Switch
 from module.equipment.assets_override import equip_assets_override
+import gl
 
 equipping_filter = Switch('Equiping_filter')
 equipping_filter.add_status('on', check_button=EQUIPPING_ON)
@@ -545,7 +546,7 @@ class EquipmentNew(StorageHandler):
         self.equipment_has_take_on = True
 
 
-class Equipment(EquipmentOld if globals().get("g_current_task", "") == "GemsFarming" else EquipmentNew):
+class Equipment(EquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else EquipmentNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, EquipmentOld):
             logger.info("use EquipmentOld")

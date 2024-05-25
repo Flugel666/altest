@@ -1,3 +1,4 @@
+import gl
 from module.base.button import ButtonGrid
 from module.base.decorator import cached_property
 from module.base.timer import Timer
@@ -394,8 +395,8 @@ class DockNew(UI):
 
 
 def redirect_inherit_to_old() -> bool:
-    current_task = globals().get("g_current_task", "")
-    current_config = globals().get("g_config", None)
+    current_task = gl.gl_get("g_current_task", "")
+    current_config = gl.gl_get("g_config", None)
 
     if current_task == "GemsFarming":
         return True

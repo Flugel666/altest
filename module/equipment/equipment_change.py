@@ -1,3 +1,4 @@
+import gl
 from module.base.button import ButtonGrid
 from module.base.decorator import Config
 from module.base.utils import *
@@ -314,7 +315,7 @@ class EquipmentChangeNew(Equipment):
         return
 
 
-class EquipmentChange(EquipmentChangeOld if globals().get("g_current_task", "") == "GemsFarming" else EquipmentChangeNew):
+class EquipmentChange(EquipmentChangeOld if gl.gl_get("g_current_task", "") == "GemsFarming" else EquipmentChangeNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, EquipmentChangeOld):
             logger.info("use EquipmentChangeOld")

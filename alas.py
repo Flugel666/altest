@@ -14,9 +14,7 @@ from module.exception import *
 from module.logger import logger
 from module.notify import handle_notify
 from module.gg_handler.gg_handler import GGHandler
-
-g_current_task: str = ""
-g_config: AzurLaneConfig = None
+import gl
 
 
 class AzurLaneAutoScript:
@@ -547,9 +545,7 @@ class AzurLaneAutoScript:
                 exit(1)
 
     def loop(self):
-        global g_config
-        if g_config is not None:
-            g_config = self.config
+        gl.gl_set("g_config", self.config)
 
         self.gg_check()
         logger.set_file_logger(self.config_name)
@@ -580,8 +576,7 @@ class AzurLaneAutoScript:
             # Init device and change server
             _ = self.device
 
-            global g_current_task
-            g_current_task = task
+            gl.gl_set("g_current_task", task)
 
             # Skip first restart
             if task == 'Restart':

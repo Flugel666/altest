@@ -1,3 +1,4 @@
+import gl
 from module.equipment.equipment import Equipment
 from module.equipment.equipment_change import EquipmentChange
 from module.hard.assets import *
@@ -51,7 +52,7 @@ class HardEquipmentNew(EquipmentChange):
         return True
 
 
-class HardEquipment(HardEquipmentOld if globals().get("g_current_task", "") == "GemsFarming" else HardEquipmentNew):
+class HardEquipment(HardEquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else HardEquipmentNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, HardEquipmentOld):
             logger.info("use HardEquipmentOld")

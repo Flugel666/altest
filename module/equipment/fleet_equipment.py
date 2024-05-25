@@ -1,3 +1,4 @@
+import gl
 from module.equipment.assets import *
 from module.equipment.equipment import Equipment
 from module.equipment.equipment_change import EquipmentChange
@@ -78,7 +79,7 @@ class FleetEquipmentNew(EquipmentChange):
         self.ui_back(FLEET_CHECK)
 
 
-class FleetEquipment(DailyEquipment if globals().get("g_current_task", "") == "GemsFarming" else FleetEquipmentNew):
+class FleetEquipment(DailyEquipment if gl.gl_get("g_current_task", "") == "GemsFarming" else FleetEquipmentNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, DailyEquipment):
             logger.info("use DailyEquipment")
