@@ -546,7 +546,25 @@ class EquipmentNew(StorageHandler):
         self.equipment_has_take_on = True
 
 
-class Equipment(EquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else EquipmentNew):
+def equip_redirect_inherit_to_old() -> bool:
+    current_task = gl.gl_get("g_current_task", "")
+    current_config = gl.gl_get("g_config", None)
+
+    if current_task == "GemsFarming":
+        return True
+    elif current_task.find("Main") != -1:
+        return True
+    elif current_task.find("Event") != -1:
+        return True
+    elif current_task == "OpsiAshBeacon":
+        return True
+    else:
+        return False
+
+    return False
+
+
+class Equipment(EquipmentOld if equip_redirect_inherit_to_old() else EquipmentNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, EquipmentOld):
             logger.info("use EquipmentOld")
