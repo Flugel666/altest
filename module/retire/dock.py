@@ -404,6 +404,8 @@ def redirect_inherit_to_old() -> bool:
         return True
     elif current_task.find("Event") != -1:
         return True
+    elif current_task == "OpsiAshBeacon":
+        return True
     else:
         return False
 
