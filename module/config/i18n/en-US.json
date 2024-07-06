@@ -1180,10 +1180,8 @@
       "name": "Flagship Common DD Preference",
       "help": "",
       "any": "any",
-      "favourite": "Favourite Ships Only",
       "aulick_or_foote": "Aulick or Foote",
-      "cassin_or_downes": "Cassin or Downes",
-      "z20_or_z21": "Z20 or Z21"
+      "cassin_or_downes": "Cassin or Downes"
     },
     "ALLowLowVanguardLevel": {
       "name": "ALLow Low Vanguard Level",
