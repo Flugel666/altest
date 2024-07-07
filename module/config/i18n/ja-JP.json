@@ -1012,6 +1012,60 @@
       "calculate": "calculate",
       "ignore": "ignore",
       "calculate_ignore": "calculate_ignore"
+    },
+    "Fleet1Value": {
+      "name": "Emotion.Fleet1Value.name",
+      "help": "Emotion.Fleet1Value.help"
+    },
+    "Fleet1Record": {
+      "name": "Emotion.Fleet1Record.name",
+      "help": "Emotion.Fleet1Record.help"
+    },
+    "Fleet1Control": {
+      "name": "Emotion.Fleet1Control.name",
+      "help": "Emotion.Fleet1Control.help",
+      "keep_exp_bonus": "keep_exp_bonus",
+      "prevent_green_face": "prevent_green_face",
+      "prevent_yellow_face": "prevent_yellow_face",
+      "prevent_red_face": "prevent_red_face"
+    },
+    "Fleet1Recover": {
+      "name": "Emotion.Fleet1Recover.name",
+      "help": "Emotion.Fleet1Recover.help",
+      "not_in_dormitory": "not_in_dormitory",
+      "dormitory_floor_1": "dormitory_floor_1",
+      "dormitory_floor_2": "dormitory_floor_2"
+    },
+    "Fleet1Oath": {
+      "name": "Emotion.Fleet1Oath.name",
+      "help": "Emotion.Fleet1Oath.help"
+    },
+    "Fleet2Value": {
+      "name": "Emotion.Fleet2Value.name",
+      "help": "Emotion.Fleet2Value.help"
+    },
+    "Fleet2Record": {
+      "name": "Emotion.Fleet2Record.name",
+      "help": "Emotion.Fleet2Record.help"
+    },
+    "Fleet2Control": {
+      "name": "Emotion.Fleet2Control.name",
+      "help": "Emotion.Fleet2Control.help",
+      "keep_exp_bonus": "keep_exp_bonus",
+      "prevent_green_face": "prevent_green_face",
+      "prevent_yellow_face": "prevent_yellow_face",
+      "prevent_red_face": "prevent_red_face"
+    },
+    "Fleet2Recover": {
+      "name": "Emotion.Fleet2Recover.name",
+      "help": "Emotion.Fleet2Recover.help",
+      "not_in_dormitory": "not_in_dormitory",
+      "dormitory_floor_1": "dormitory_floor_1",
+      "dormitory_floor_2": "dormitory_floor_2"
+    },
+    "Fleet2Oath": {
+      "name": "Emotion.Fleet2Oath.name",
+      "help": "Emotion.Fleet2Oath.help"
     }
   },
   "ResearchFarmingSetting": {

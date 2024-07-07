@@ -1012,6 +1012,60 @@
       "calculate": "計算心情消耗",
       "ignore": "無視紅臉出擊警告",
       "calculate_ignore": "計算心情消耗 + 無視紅臉出擊警告"
+    },
+    "Fleet1Value": {
+      "name": "一隊心情值",
+      "help": ""
+    },
+    "Fleet1Record": {
+      "name": "一隊心情紀錄時間",
+      "help": ""
+    },
+    "Fleet1Control": {
+      "name": "一隊心情控制",
+      "help": "",
+      "keep_exp_bonus": "保持經驗加成 (>120)",
+      "prevent_green_face": "防止綠臉 (>40)",
+      "prevent_yellow_face": "防止黃臉 (>30)",
+      "prevent_red_face": "防止紅臉 (>0)"
+    },
+    "Fleet1Recover": {
+      "name": "一隊心情回復",
+      "help": "",
+      "not_in_dormitory": "未放置於後宅 (20/h)",
+      "dormitory_floor_1": "後宅一樓 (40/h)",
+      "dormitory_floor_2": "後宅二樓 (50/h)"
+    },
+    "Fleet1Oath": {
+      "name": "一隊全員已婚 (+10/h)",
+      "help": ""
+    },
+    "Fleet2Value": {
+      "name": "二隊心情值",
+      "help": ""
+    },
+    "Fleet2Record": {
+      "name": "二隊心情紀錄時間",
+      "help": ""
+    },
+    "Fleet2Control": {
+      "name": "二隊心情控制",
+      "help": "",
+      "keep_exp_bonus": "保持經驗加成 (>120)",
+      "prevent_green_face": "防止綠臉 (>40)",
+      "prevent_yellow_face": "防止黃臉 (>30)",
+      "prevent_red_face": "防止紅臉 (>0)"
+    },
+    "Fleet2Recover": {
+      "name": "二隊心情回復",
+      "help": "",
+      "not_in_dormitory": "未放置於後宅 (20/h)",
+      "dormitory_floor_1": "後宅一樓 (40/h)",
+      "dormitory_floor_2": "後宅二樓 (50/h)"
+    },
+    "Fleet2Oath": {
+      "name": "二隊全員已婚 (+10/h)",
+      "help": ""
     }
   },
   "ResearchFarmingSetting": {

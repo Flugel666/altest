@@ -1012,6 +1012,60 @@
       "calculate": "Calculate Emotion Consumption",
       "ignore": "Ignore Low Emotion Warning",
       "calculate_ignore": "Calculate + Ignore"
+    },
+    "Fleet1Value": {
+      "name": "Fleet 1 Emotion Value",
+      "help": ""
+    },
+    "Fleet1Record": {
+      "name": "Fleet 1 Emotion Record",
+      "help": ""
+    },
+    "Fleet1Control": {
+      "name": "Fleet 1 Emotion Control",
+      "help": "Measures will be taken to ensure control is maintained i.e. wait for recovery in level or stop current task if others can be executed while waiting",
+      "keep_exp_bonus": "Keep Happy Bonus (>120)",
+      "prevent_green_face": "Keep Content (>40)",
+      "prevent_yellow_face": "Prevent Moody (>30)",
+      "prevent_red_face": "Prevent Exhausted (>20)"
+    },
+    "Fleet1Recover": {
+      "name": "Fleet 1 Recover Location",
+      "help": "Configure accordingly to accurately calculate emotion",
+      "not_in_dormitory": "Docks (20/hr)",
+      "dormitory_floor_1": "Dorm Floor 1 (40/hr)",
+      "dormitory_floor_2": "Dorm Floor 2 (50/hr)"
+    },
+    "Fleet1Oath": {
+      "name": "Fleet 1 All Oath",
+      "help": "+10/hr emotion recovery is included into calculation"
+    },
+    "Fleet2Value": {
+      "name": "Fleet 2 Emotion Value",
+      "help": ""
+    },
+    "Fleet2Record": {
+      "name": "Fleet 2 Emotion Record",
+      "help": ""
+    },
+    "Fleet2Control": {
+      "name": "Fleet 2 Emotion Control",
+      "help": "Measures will be taken to ensure control is maintained i.e. wait for recovery in level or stop current task if others can be executed while waiting",
+      "keep_exp_bonus": "Keep Happy Bonus (>120)",
+      "prevent_green_face": "Keep Content (>40)",
+      "prevent_yellow_face": "Prevent Moody (>30)",
+      "prevent_red_face": "Prevent Exhausted (>20)"
+    },
+    "Fleet2Recover": {
+      "name": "Fleet 2 Recover Location",
+      "help": "",
+      "not_in_dormitory": "Docks (20/hr)",
+      "dormitory_floor_1": "Dorm Floor 1 (40/hr)",
+      "dormitory_floor_2": "Dorm Floor 2 (50/hr)"
+    },
+    "Fleet2Oath": {
+      "name": "Fleet 2 All Oath",
+      "help": "+10/hr emotion recovery is included into calculation"
     }
   },
   "ResearchFarmingSetting": {
