@@ -10258,9 +10258,12 @@
       },
       "PresetFilter": {
         "type": "select",
-        "value": "series_6_blueprint_203",
+        "value": "series_7_blueprint_la9",
         "option": [
           "custom",
+          "series_7_blueprint_la9",
+          "series_7_blueprint_only",
+          "series_7_la9_only",
           "series_6_blueprint_203",
           "series_6_blueprint_only",
           "series_6_203_only",
