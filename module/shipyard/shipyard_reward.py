@@ -222,6 +222,10 @@ class RewardShipyard(ShipyardUI, GeneralShop):
             in: Any page
             out: page_shipyard
         """
+        if self.config.SERVER in ['cn', 'en', 'jp']:
+            logger.warning(f'Shipyard is disabled in server {self.config.SERVER.upper()} until assets are updated')
+            self.config.task_delay(server_update=True)
+            return
         if self.config.Shipyard_BuyAmount <= 0 and self.config.ShipyardDr_BuyAmount <= 0:
             self.config.Scheduler_Enable = False
             self.config.task_stop()
