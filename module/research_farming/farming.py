@@ -40,9 +40,6 @@ class ResearchFarming(UI, ModuleBase):
         CurrentPercent = color_bar_percentage(self.device.image, self.SHIP_EXPERIENCE_PERCENT.area, prev_color=(255, 239, 82))
         self.config.modified["Dashboard.ResearchPercent.Value"] = int(CurrentPercent * 100)
         self.config.modified["Dashboard.ResearchPercent.Record"] = datetime.now().replace(microsecond=0)
-        self.ui_click(self.SHIP_EXPERIENCE_FINISHED, check_button=self.SHIP_EXPERIENCE_COMMIT)
-        self.device.sleep(0.5)
-        self.device.click(self.SHIP_EXPERIENCE_COMMIT)
         if CurrentPercent > 0.99 and self.appear(self.SHIP_EXPERIENCE_FINISHED):
             return True
         return False
@@ -62,6 +59,9 @@ class ResearchFarming(UI, ModuleBase):
         if ExperienceIndex == 1 or ExperienceIndex == 2:
             self._Override(ExperienceIndex)
             if self._IsSingleFinished(ExperienceIndex):
+                self.ui_click(self.SHIP_EXPERIENCE_FINISHED, check_button=self.SHIP_EXPERIENCE_COMMIT)
+                self.device.sleep(0.5)
+                self.device.click(self.SHIP_EXPERIENCE_COMMIT)
                 self._DisableAllResearchFarmTask()
                 self._Notify(ExperienceIndex)
         elif ExperienceIndex == 0:
