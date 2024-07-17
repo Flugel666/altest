@@ -5,7 +5,7 @@ import inflection
 
 from module.base.timer import Timer
 from module.combat.assets import PAUSE
-from module.config.utils import get_os_reset_remain
+from module.config.utils import get_os_reset_remain, deep_get
 from module.exception import CampaignEnd, GameTooManyClickError, MapWalkError, RequestHumanTakeover, ScriptError
 from module.exercise.assets import QUIT_CONFIRM, QUIT_RECONFIRM
 from module.handler.login import LoginHandler, MAINTENANCE_ANNOUNCE
@@ -19,7 +19,7 @@ from module.os_handler.assets import AUTO_SEARCH_OS_MAP_OPTION_OFF, AUTO_SEARCH_
     AUTO_SEARCH_OS_MAP_OPTION_ON, AUTO_SEARCH_REWARD
 from module.os_handler.strategic import StrategicSearchHandler
 from module.ui.assets import GOTO_MAIN
-from module.ui.page import page_os
+from module.ui.page import page_os, page_main
 
 
 class OSMap(OSFleet, Map, GlobeCamera, StrategicSearchHandler):
@@ -547,6 +547,12 @@ class OSMap(OSFleet, Map, GlobeCamera, StrategicSearchHandler):
             # End
             if self.is_in_main():
                 logger.info('Auto search interrupted')
+
+                if deep_get(self.config.data, "ResearchFarmingSetting.OpsiHazard1ResearchFarming.Enable", False):
+                    from module.research_farming.farming import ResearchFarming
+                    ResearchFarming(config=self.config, device=self.device).CheckResearchShipExperience()
+                    self.ui_goto(page_main)
+
                 self.config.task_stop()
 
             if self.appear_then_click(AUTO_SEARCH_REWARD, offset=(50, 50), interval=3):
