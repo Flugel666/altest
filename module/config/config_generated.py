@@ -126,7 +126,7 @@ class GeneratedConfig:
 
     # Group `ResearchFarmingSetting`
     ResearchFarmingSetting_OilLimit = 3000
-    ResearchFarmingSetting_ResearchSeries = 1  # 1, 2, 3, 4, 5, 6
+    ResearchFarmingSetting_ResearchSeries = 1  # 1, 2, 3, 4, 5, 6, 7
     ResearchFarmingSetting_ShipIndex = 1  # 1, 2, 3, 4, 5, 6
     ResearchFarmingSetting_ExperienceIndex = 1  # 0, 1, 2
     ResearchFarmingSetting_CheckInterval = 5
