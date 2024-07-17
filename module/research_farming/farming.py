@@ -16,6 +16,7 @@ class ResearchFarming(UI, ModuleBase):
     def _DisableAllResearchFarmTask(self):
         for i in range(1, 7):
             self.config.modified[f"{self._GetResearchFarmTaskName(i)}.Scheduler.Enable"] = False
+        self.config.modified["ResearchFarmingSetting.OpsiHazard1ResearchFarming.Enable"] = False
 
     def _Override(self, Index):
         if Index == 1:

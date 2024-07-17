@@ -133,6 +133,9 @@ class GeneratedConfig:
     ResearchFarmingSetting_CurrentCampaignTimes = 0
     ResearchFarmingSetting_OnepushNotify = True
 
+    # Group `OpsiHazard1ResearchFarming`
+    OpsiHazard1ResearchFarming_Enable = False
+
     # Group `ResearchFarm1Setting`
     ResearchFarm1Setting_Enable = False
     ResearchFarm1Setting_Campaign = '12-4'

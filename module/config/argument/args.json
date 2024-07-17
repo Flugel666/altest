@@ -2209,6 +2209,12 @@
         "value": true
       }
     },
+    "OpsiHazard1ResearchFarming": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false
+      }
+    },
     "ResearchFarm1Setting": {
       "Enable": {
         "type": "checkbox",

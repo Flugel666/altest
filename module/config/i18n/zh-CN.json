@@ -1118,6 +1118,16 @@
       "help": "推荐开启"
     }
   },
+  "OpsiHazard1ResearchFarming": {
+    "_info": {
+      "name": "大世界侵蚀1",
+      "help": ""
+    },
+    "Enable": {
+      "name": "启用",
+      "help": "需要手动配置好并开启大世界侵蚀1"
+    }
+  },
   "ResearchFarm1Setting": {
     "_info": {
       "name": "刷科研-1设置",

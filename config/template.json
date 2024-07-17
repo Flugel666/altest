@@ -398,6 +398,9 @@
       "CurrentCampaignTimes": 0,
       "OnepushNotify": true
     },
+    "OpsiHazard1ResearchFarming": {
+      "Enable": false
+    },
     "ResearchFarm1Setting": {
       "Enable": false,
       "Campaign": "12-4",

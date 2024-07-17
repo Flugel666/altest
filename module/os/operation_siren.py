@@ -18,6 +18,7 @@ from module.os_handler.action_point import OCR_OS_ADAPTABILITY, ActionPointLimit
 from module.os_handler.assets import OS_MONTHBOSS_NORMAL, OS_MONTHBOSS_HARD, EXCHANGE_CHECK, EXCHANGE_ENTER
 from module.os_shop.assets import OS_SHOP_CHECK
 from module.shop.shop_voucher import VoucherShop
+from module.ui.page import page_os
 
 
 class OperationSiren(OSMap):
@@ -470,6 +471,10 @@ class OperationSiren(OSMap):
             self.run_strategic_search()
 
             self.handle_after_auto_search()
+            if deep_get(self.config.data, "ResearchFarmingSetting.OpsiHazard1ResearchFarming.Enable", False):
+                from module.research_farming.farming import ResearchFarming
+                ResearchFarming(config=self.config, device=self.device).CheckResearchShipExperience()
+                self.ui_goto(page_os)
             self.config.check_task_switch()
 
     def _os_explore_task_delay(self):

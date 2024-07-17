@@ -1118,6 +1118,16 @@
       "help": "ResearchFarmingSetting.OnepushNotify.help"
     }
   },
+  "OpsiHazard1ResearchFarming": {
+    "_info": {
+      "name": "OpsiHazard1ResearchFarming._info.name",
+      "help": "OpsiHazard1ResearchFarming._info.help"
+    },
+    "Enable": {
+      "name": "OpsiHazard1ResearchFarming.Enable.name",
+      "help": "OpsiHazard1ResearchFarming.Enable.help"
+    }
+  },
   "ResearchFarm1Setting": {
     "_info": {
       "name": "ResearchFarm1Setting._info.name",
