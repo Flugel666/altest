@@ -12,9 +12,10 @@ class ShipData:
     def __init__(self, DataStr: str):
         DataList = DataStr.split(";")
         self.ShipId = DataList[0]
-        self.Star = DataList[1]
-        self.ShipType = DataList[2]
-        self.TargetType = DataList[3]
+        self.Rarity = DataList[1]
+        self.Star = DataList[2]
+        self.ShipType = DataList[3]
+        self.TargetType = DataList[4]
 
 
 class ChangeShip(ModuleBase):
@@ -74,15 +75,17 @@ class ChangeShip(ModuleBase):
             if self.d(resourceId=f"{self.gg_package_name}:id/edit").exists:
                 ShipDataList = self.GetShipData()
                 ShipIdStr = ";".join([str(i.ShipId) for i in ShipDataList])
+                ShipRarityStr = ";".join([str(i.Rarity) for i in ShipDataList])
                 ShipStarStr = ";".join([str(i.Star) for i in ShipDataList])
                 CurrentShipTypeStr = ";".join([str(i.ShipType) for i in ShipDataList])
                 TargetShipTypeStr = ";".join([str(i.TargetType) for i in ShipDataList])
                 while 1:
                     try:
                         self.d(resourceId=f"{self.gg_package_name}:id/edit")[0].send_keys(ShipIdStr)
-                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[1].send_keys(ShipStarStr)
-                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[2].send_keys(CurrentShipTypeStr)
-                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[3].send_keys(TargetShipTypeStr)
+                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[1].send_keys(ShipRarityStr)
+                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[2].send_keys(ShipStarStr)
+                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[3].send_keys(CurrentShipTypeStr)
+                        self.d(resourceId=f"{self.gg_package_name}:id/edit")[4].send_keys(TargetShipTypeStr)
                         break
                     except UiObjectNotFoundError:
                         self.d(className="android.widget.ScrollView")[0].scroll.toEnd()
