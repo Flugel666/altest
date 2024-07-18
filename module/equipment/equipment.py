@@ -564,7 +564,7 @@ def equip_redirect_inherit_to_old() -> bool:
     return False
 
 
-class Equipment(EquipmentOld if equip_redirect_inherit_to_old() else EquipmentNew):
+class Equipment(EquipmentOld if equip_redirect_inherit_to_old() else EquipmentOld):
     def __init__(self, *args, **kwargs):
         if isinstance(self, EquipmentOld):
             logger.info("use EquipmentOld")

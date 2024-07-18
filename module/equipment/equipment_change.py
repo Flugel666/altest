@@ -315,7 +315,7 @@ class EquipmentChangeNew(Equipment):
         return
 
 
-class EquipmentChange(EquipmentChangeOld if gl.gl_get("g_current_task", "") == "GemsFarming" else EquipmentChangeNew):
+class EquipmentChange(EquipmentChangeOld if gl.gl_get("g_current_task", "") == "GemsFarming" else EquipmentChangeOld):
     def __init__(self, *args, **kwargs):
         if isinstance(self, EquipmentChangeOld):
             logger.info("use EquipmentChangeOld")

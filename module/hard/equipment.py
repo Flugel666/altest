@@ -52,7 +52,7 @@ class HardEquipmentNew(EquipmentChange):
         return True
 
 
-class HardEquipment(HardEquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else HardEquipmentNew):
+class HardEquipment(HardEquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else HardEquipmentOld):
     def __init__(self, *args, **kwargs):
         if isinstance(self, HardEquipmentOld):
             logger.info("use HardEquipmentOld")

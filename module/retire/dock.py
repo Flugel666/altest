@@ -221,7 +221,7 @@ class DockOld(Equipment):
                 continue
 
 
-class DockNew(UI):
+class DockNew(Equipment):
     def handle_dock_cards_loading(self):
         # Poor implementation.
         self.device.sleep((1, 1.5))
@@ -245,7 +245,7 @@ class DockNew(UI):
         self.ui_click(DOCK_FILTER, appear_button=DOCK_CHECK, check_button=DOCK_FILTER_CONFIRM,
                       skip_first_screenshot=True)
 
-    def dock_filter_confirm(self):
+    def dock_filter_confirm(self, wait_loading=True):
         self.ui_click(DOCK_FILTER_CONFIRM, check_button=DOCK_CHECK, skip_first_screenshot=True)
         self.handle_dock_cards_loading()
 
@@ -295,7 +295,7 @@ class DockNew(UI):
         )
         return setting
 
-    def dock_filter_set(self, sort='level', index='all', faction='all', rarity='all', extra='no_limit'):
+    def dock_filter_set(self, sort='level', index='all', faction='all', rarity='all', extra='no_limit', wait_loading=True):
         """
         A faster filter set function.
 
@@ -421,7 +421,7 @@ def redirect_inherit_to_old() -> bool:
     return False
 
 
-class Dock(DockOld if redirect_inherit_to_old() else DockNew):
+class Dock(DockOld if redirect_inherit_to_old() else DockOld):
     def __init__(self, *args, **kwargs):
         if isinstance(self, DockOld):
             logger.info("use DockOld")

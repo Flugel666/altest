@@ -105,7 +105,7 @@ class ExerciseEquipmentNew(EquipmentChange):
         self._inactive_edit()
 
 
-class ExerciseEquipment(ExerciseEquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else ExerciseEquipmentNew):
+class ExerciseEquipment(ExerciseEquipmentOld if gl.gl_get("g_current_task", "") == "GemsFarming" else ExerciseEquipmentOld):
     def __init__(self, *args, **kwargs):
         if isinstance(self, ExerciseEquipmentOld):
             logger.info("use ExerciseEquipmentOld")
