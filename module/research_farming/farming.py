@@ -12,6 +12,18 @@ from module.research_farming.assets import (SHIP_EXPERIENCE_PERCENT_1, SHIP_EXPE
 from datetime import datetime
 
 
+class ExpHasFinished(Exception):
+    ...
+
+
+class ExpFinished(Exception):
+    ...
+
+
+class ExpNotFinished(Exception):
+    ...
+
+
 class ResearchFarming(UI, ModuleBase):
     def _DisableAllResearchFarmTask(self):
         for i in range(1, 7):
@@ -42,7 +54,7 @@ class ResearchFarming(UI, ModuleBase):
 
         if self.appear(self.SHIP_EXPERIENCE_COMPLETE, threshold=64):
             logger.info(f"ship's exp {Index} has completed")
-            return True
+            raise ExpHasFinished
 
         CurrentPercent = color_bar_percentage(self.device.image, self.SHIP_EXPERIENCE_PERCENT.area, prev_color=(255, 239, 82))
         if CurrentPercent > 0.99 and self.appear(self.SHIP_EXPERIENCE_FINISHED):
@@ -50,12 +62,12 @@ class ResearchFarming(UI, ModuleBase):
             self.ui_click(self.SHIP_EXPERIENCE_FINISHED, check_button=self.SHIP_EXPERIENCE_COMMIT)
             self.device.sleep(0.5)
             self.device.click(self.SHIP_EXPERIENCE_COMMIT)
-            return True
+            raise ExpFinished
 
         self.config.modified["Dashboard.ResearchPercent.Value"] = int(CurrentPercent * 100)
         self.config.modified["Dashboard.ResearchPercent.Record"] = datetime.now().replace(microsecond=0)
 
-        return False
+        raise ExpNotFinished
 
     def _Notify(self, Index):
         IsPush = deep_get(self.config.data, "ResearchFarmingSetting.ResearchFarmingSetting.OnepushNotify")
@@ -70,15 +82,31 @@ class ResearchFarming(UI, ModuleBase):
         self._UiGotoTargetShip()
         ExperienceIndex = deep_get(self.config.data, "ResearchFarmingSetting.ResearchFarmingSetting.ExperienceIndex")
         if ExperienceIndex == 1 or ExperienceIndex == 2:
-            if self._IsSingleFinished(ExperienceIndex):
+            try:
+                self._IsSingleFinished(ExperienceIndex)
+            except (ExpHasFinished, ExpFinished):
                 self._DisableAllResearchFarmTask()
                 self._Notify(ExperienceIndex)
+            except ExpNotFinished:
+                return
         elif ExperienceIndex == 0:
-            if self._IsSingleFinished(1):
+            try:
+                self._IsSingleFinished(1)
+            except ExpHasFinished:
+                pass
+            except ExpFinished:
                 self._Notify(1)
-            elif self._IsSingleFinished(2):
+                return
+            except ExpNotFinished:
+                return
+
+            try:
+                self._IsSingleFinished(2)
+            except (ExpHasFinished, ExpFinished):
                 self._DisableAllResearchFarmTask()
                 self._Notify(2)
+            except ExpNotFinished:
+                return
 
     def _GetResearchFarmTaskName(self, Index):
         return f"ResearchFarm{Index if Index != 1 else ''}"
