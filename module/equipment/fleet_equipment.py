@@ -79,7 +79,7 @@ class FleetEquipmentNew(EquipmentChange):
         self.ui_back(FLEET_CHECK)
 
 
-class FleetEquipment(DailyEquipment if gl.gl_get("g_current_task", "") == "GemsFarming" else FleetEquipmentOld):
+class FleetEquipment(DailyEquipment if gl.gl_get("g_current_task", "") == "GemsFarming" else FleetEquipmentNew):
     def __init__(self, *args, **kwargs):
         if isinstance(self, DailyEquipment):
             logger.info("use DailyEquipment")
