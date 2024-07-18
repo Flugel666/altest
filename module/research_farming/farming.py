@@ -17,6 +17,7 @@ class ResearchFarming(UI, ModuleBase):
         for i in range(1, 7):
             self.config.modified[f"{self._GetResearchFarmTaskName(i)}.Scheduler.Enable"] = False
         self.config.modified["ResearchFarmingSetting.OpsiHazard1ResearchFarming.Enable"] = False
+        self.config.save(self.config.config_name)
 
     def _Override(self, Index):
         if Index == 1:
@@ -38,11 +39,22 @@ class ResearchFarming(UI, ModuleBase):
 
     def _IsSingleFinished(self, Index):
         self._Override(Index)
+
+        if self.appear(self.SHIP_EXPERIENCE_COMPLETE, threshold=64):
+            logger.info(f"ship's exp {Index} has completed")
+            return True
+
         CurrentPercent = color_bar_percentage(self.device.image, self.SHIP_EXPERIENCE_PERCENT.area, prev_color=(255, 239, 82))
+        if CurrentPercent > 0.99 and self.appear(self.SHIP_EXPERIENCE_FINISHED):
+            logger.info(f"commit ship's exp {Index}")
+            self.ui_click(self.SHIP_EXPERIENCE_FINISHED, check_button=self.SHIP_EXPERIENCE_COMMIT)
+            self.device.sleep(0.5)
+            self.device.click(self.SHIP_EXPERIENCE_COMMIT)
+            return True
+
         self.config.modified["Dashboard.ResearchPercent.Value"] = int(CurrentPercent * 100)
         self.config.modified["Dashboard.ResearchPercent.Record"] = datetime.now().replace(microsecond=0)
-        if CurrentPercent > 0.99 and self.appear(self.SHIP_EXPERIENCE_FINISHED):
-            return True
+
         return False
 
     def _Notify(self, Index):
@@ -58,27 +70,15 @@ class ResearchFarming(UI, ModuleBase):
         self._UiGotoTargetShip()
         ExperienceIndex = deep_get(self.config.data, "ResearchFarmingSetting.ResearchFarmingSetting.ExperienceIndex")
         if ExperienceIndex == 1 or ExperienceIndex == 2:
-            self._Override(ExperienceIndex)
             if self._IsSingleFinished(ExperienceIndex):
-                self.ui_click(self.SHIP_EXPERIENCE_FINISHED, check_button=self.SHIP_EXPERIENCE_COMMIT)
-                self.device.sleep(0.5)
-                self.device.click(self.SHIP_EXPERIENCE_COMMIT)
                 self._DisableAllResearchFarmTask()
                 self._Notify(ExperienceIndex)
         elif ExperienceIndex == 0:
-            if not self.appear(SHIP_EXPERIENCE_COMPLETE_1):
-                if self._IsSingleFinished(1):
-                    self.ui_click(SHIP_EXPERIENCE_FINISHED_1, check_button=SHIP_EXPERIENCE_COMMIT_1)
-                    self.device.sleep(0.5)
-                    self.device.click(SHIP_EXPERIENCE_COMMIT_1)
-                    self._Notify(1)
-            elif not self.appear(SHIP_EXPERIENCE_COMPLETE_2):
-                if self._IsSingleFinished(2):
-                    self.ui_click(SHIP_EXPERIENCE_FINISHED_2, check_button=SHIP_EXPERIENCE_COMMIT_2)
-                    self.device.sleep(0.5)
-                    self.device.click(SHIP_EXPERIENCE_COMMIT_2)
-                    self._DisableAllResearchFarmTask()
-                    self._Notify(2)
+            if self._IsSingleFinished(1):
+                self._Notify(1)
+            elif self._IsSingleFinished(2):
+                self._DisableAllResearchFarmTask()
+                self._Notify(2)
 
     def _GetResearchFarmTaskName(self, Index):
         return f"ResearchFarm{Index if Index != 1 else ''}"
