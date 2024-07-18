@@ -635,6 +635,7 @@ class AzurLaneAutoScript:
             task = self.get_next_task()
             # Init device and change server
             _ = self.device
+            self.device.config = self.config
 
             gl.gl_set("g_current_task", task)
 
