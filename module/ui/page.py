@@ -303,3 +303,8 @@ page_main_white.link(button=MAIL_ENTER_WHITE, destination=page_mail)
 
 # Keep page_rpg_stage, so Raid can import
 page_rpg_stage = page_raid
+
+# Player
+page_player = Page(PLAYER_CHECK)
+page_main.link(button=MAIN_GOTO_PLAYER, destination=page_player)
+page_main_white.link(button=MAIN_GOTO_PLAYER_WHITE, destination=page_player)

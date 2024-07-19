@@ -13127,6 +13127,42 @@
         "validate": "datetime"
       }
     },
+    "PlayerLevel": {
+      "Value": {
+        "type": "input",
+        "value": 0
+      },
+      "Color": {
+        "type": "input",
+        "value": "^FFAA33",
+        "display": "hide"
+      },
+      "Record": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      }
+    },
+    "PlayerExp": {
+      "Value": {
+        "type": "input",
+        "value": 0
+      },
+      "Limit": {
+        "type": "input",
+        "value": 0
+      },
+      "Color": {
+        "type": "input",
+        "value": "^FFAA33",
+        "display": "hide"
+      },
+      "Record": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      }
+    },
     "Storage": {
       "Storage": {
         "type": "storage",

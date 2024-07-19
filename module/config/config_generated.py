@@ -644,6 +644,17 @@ class GeneratedConfig:
     ResearchPercent_Color = '^000000'
     ResearchPercent_Record = datetime.datetime(2020, 1, 1, 0, 0)
 
+    # Group `PlayerLevel`
+    PlayerLevel_Value = 0
+    PlayerLevel_Color = '^000000'
+    PlayerLevel_Record = datetime.datetime(2020, 1, 1, 0, 0)
+
+    # Group `PlayerExp`
+    PlayerExp_Value = 0
+    PlayerExp_Limit = 0
+    PlayerExp_Color = '^000000'
+    PlayerExp_Record = datetime.datetime(2020, 1, 1, 0, 0)
+
     # Group `AutoRestart`
     AutoRestart_Enabled = False
     AutoRestart_AttemptsToRestart = 114514
