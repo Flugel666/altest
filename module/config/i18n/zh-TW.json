@@ -3258,6 +3258,21 @@
       "name": "ChangeShip.Timeout.name",
       "help": "ChangeShip.Timeout.help"
     },
+    "Vanguard": {
+      "name": "ChangeShip.Vanguard.name",
+      "help": "ChangeShip.Vanguard.help",
+      "downes_and_cassin_to_ca": "downes_and_cassin_to_ca",
+      "downes_and_cassin_to_cl": "downes_and_cassin_to_cl",
+      "custom": "custom"
+    },
+    "CapitalShip": {
+      "name": "ChangeShip.CapitalShip.name",
+      "help": "ChangeShip.CapitalShip.help",
+      "cvl_to_bc": "cvl_to_bc",
+      "cvl_to_bb": "cvl_to_bb",
+      "cvl_to_cv": "cvl_to_cv",
+      "custom": "custom"
+    },
     "ShipData": {
       "name": "ChangeShip.ShipData.name",
       "help": "ChangeShip.ShipData.help"

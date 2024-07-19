@@ -8,6 +8,7 @@ from module.config.config import deep_get
 from module.base.base import ModuleBase
 import uiautomator2 as u2
 
+
 class ShipData:
     def __init__(self, DataStr: str):
         DataList = DataStr.split(";")
@@ -27,7 +28,25 @@ class ChangeShip(ModuleBase):
 
     def GetShipData(self):
         DataList = list()
-        for i in deep_get(self.config.data, "GameManager.ChangeShip.ShipData").split("\n"):
+        vanguard_setting = deep_get(self.config.data, keys='GameManager.ChangeShip.Vanguard')
+        capitalship_setting = deep_get(self.config.data, keys='GameManager.ChangeShip.CapitalShip')
+        _to_split = ""
+        if vanguard_setting == "downes_and_cassin_to_ca":
+            _to_split = "\n101041;2;1;1;3\n101031;2;1;1;3\n"
+        elif vanguard_setting == "downes_and_cassin_to_cl":
+            _to_split = "\n101041;2;1;1;2\n101031;2;1;1;2\n"
+        elif vanguard_setting == "custom" and capitalship_setting != "custom":
+            _to_split = deep_get(self.config.data, "GameManager.ChangeShip.ShipData")
+        if capitalship_setting == "cvl_to_bc":
+            _to_split += "\n106021;2;1;6;4\n107041;2;1;6;4\n206011;2;1;6;4\n107011;2;1;6;4\n"
+        elif capitalship_setting == "cvl_to_bb":
+            _to_split += "\n106021;2;1;6;5\n107041;2;1;6;5\n206011;2;1;6;5\n107011;2;1;6;5\n"
+        elif capitalship_setting == "cvl_to_cv":
+            _to_split += "\n106021;2;1;6;7\n107041;2;1;6;7\n206011;2;1;6;7\n107011;2;1;6;7\n"
+        elif capitalship_setting == "custom":
+            _to_split += deep_get(self.config.data, "GameManager.ChangeShip.ShipData")
+
+        for i in _to_split.split("\n"):
             if i:
                 DataList.append(ShipData(i))
         return DataList
@@ -50,7 +69,8 @@ class ChangeShip(ModuleBase):
             'd1', 'd2', 'd3',
             'ht4', 'ht5', 'ht6',
         ]
-        if not self.config.is_task_enabled("GemsFarming") or deep_get(self.config.data, "GemsFarming.Campaign.Name").lower() not in HARDMODEMAPS:
+        if not self.config.is_task_enabled("GemsFarming") or deep_get(self.config.data,
+                                                                      "GemsFarming.Campaign.Name").lower() not in HARDMODEMAPS:
             return 0
         _set = False
         _confirmed = False
@@ -111,4 +131,3 @@ class ChangeShip(ModuleBase):
                 break
             else:
                 return 0
-

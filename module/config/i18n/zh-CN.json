@@ -3258,9 +3258,24 @@
       "name": "时限(秒)",
       "help": "该项目的时限，修改较多时需要调大"
     },
+    "Vanguard": {
+      "name": "前排设置",
+      "help": "",
+      "downes_and_cassin_to_ca": "唐卡改重巡",
+      "downes_and_cassin_to_cl": "唐卡改轻巡",
+      "custom": "自定义"
+    },
+    "CapitalShip": {
+      "name": "后排设置",
+      "help": "",
+      "cvl_to_bc": "白轻航改战巡",
+      "cvl_to_bb": "白轻航改战列",
+      "cvl_to_cv": "白轻航改航母",
+      "custom": "自定义"
+    },
     "ShipData": {
       "name": "舰船数据",
-      "help": "格式为\"舰船Id;舰船稀有度;星级;舰种Id;目标类型Id\"\n参考https://github.com/0O0o0oOoO00/SmallKai中的数据\n清空会恢复默认"
+      "help": "格式为\"舰船Id;舰船稀有度;星级;舰种Id;目标类型Id\"\n参考https://github.com/0O0o0oOoO00/SmallKai中的数据\n尽量不要与预设中重复以免浪费时间（以及出现未知Bug）。\n预设只有一个自定义时，会运行另一预设与此自定义内容。\n清空会恢复默认"
     }
   },
   "ChangeAttribute": {
