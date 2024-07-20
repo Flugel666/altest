@@ -90,18 +90,18 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             self._ship_detail_enter = self._ship_detail_enter_hard
             self._fleet_detail_enter = self._fleet_detail_enter_hard
             self.page_fleet_check_button = FLEET_PREPARATION
-            if self.config.GemsFarming_FleetNumberInHardMode == 1:
+            if self.config.Fleet_FleetOrder == 'fleet1_all_fleet2_standby':
                 self.FLEET_ENTER_FLAGSHIP = FLEET_ENTER_FLAGSHIP_HARD_1
                 self.FLEET_ENTER = FLEET_ENTER_HARD_1
                 self.FLEET_ENTER_FLAGSHIP_3_POSITION = FLEET_ENTER_FLAGSHIP_HARD_1_3
                 self.FLEET_ENTER_3_POSITION = FLEET_ENTER_HARD_1_3
-            elif self.config.GemsFarming_FleetNumberInHardMode == 2:
+            elif self.config.Fleet_FleetOrder == 'fleet1_standby_fleet2_all':
                 self.FLEET_ENTER_FLAGSHIP = FLEET_ENTER_FLAGSHIP_HARD_2
                 self.FLEET_ENTER = FLEET_ENTER_HARD_2
                 self.FLEET_ENTER_FLAGSHIP_3_POSITION = FLEET_ENTER_FLAGSHIP_HARD_2_3
                 self.FLEET_ENTER_3_POSITION = FLEET_ENTER_HARD_2_3
             else:
-                logger.critical('Fleet number to change not set, check your settings')
+                logger.critical('Fleet Order Error, please check your settings')
                 from module.exception import RequestHumanTakeover
                 raise RequestHumanTakeover
             self.hard_mode = True

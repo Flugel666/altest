@@ -1645,13 +1645,6 @@
       "name": "GemsFarming.ALLowLowVanguardLevel.name",
       "help": "GemsFarming.ALLowLowVanguardLevel.help"
     },
-    "FleetNumberInHardMode": {
-      "name": "GemsFarming.FleetNumberInHardMode.name",
-      "help": "GemsFarming.FleetNumberInHardMode.help",
-      "0": "0",
-      "1": "1",
-      "2": "2"
-    },
     "StopIFAutoNotEnsured": {
       "name": "GemsFarming.StopIFAutoNotEnsured.name",
       "help": "GemsFarming.StopIFAutoNotEnsured.help"

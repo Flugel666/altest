@@ -329,7 +329,6 @@
       "ChangeVanguard": "ship",
       "CommonDD": "any",
       "ALLowLowVanguardLevel": true,
-      "FleetNumberInHardMode": 0,
       "StopIFAutoNotEnsured": true,
       "CommissionLimit": true
     },
