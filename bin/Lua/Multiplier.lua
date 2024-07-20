@@ -25,11 +25,11 @@ function HS9()
 	-- 第一次搜索
 	gg.searchNumber("0.0001;1::30", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 0)
 	gg.refineNumber("1", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 0)
+	results=gg.getResultCount()
 	gg.getResults(100)
 	gg.editAll(n, gg.TYPE_DOUBLE)
-	gg.getResultCount(results)
 	-- 判断
-	if results==nil then
+	if results==0 then
 		-- 清除
 		gg.clearResults()
 		gg.setRanges(32)
