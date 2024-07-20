@@ -13,7 +13,7 @@ from module.map.assets import (FLEET_ENTER_FLAGSHIP_HARD_1,
                                FLEET_ENTER_FLAGSHIP_HARD_1_3, FLEET_ENTER_FLAGSHIP_HARD_2_3, FLEET_ENTER_HARD_1_3,
                                FLEET_ENTER_HARD_2_3)
 from module.retire.assets import (
-                                  DOCK_SHIP_DOWN)
+    DOCK_SHIP_DOWN)
 from module.map.assets import FLEET_PREPARATION, MAP_PREPARATION
 from module.retire.assets import (
     DOCK_CHECK,
@@ -347,12 +347,12 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
 
         if self.config.GemsFarming_CommonDD == 'any':
             return scanner.scan(self.device.image, output=False)
-        
+
         candidates = self.find_candidates(self.get_templates(self.config.GemsFarming_CommonDD), scanner)
 
         if candidates:
             return candidates
-        
+
         logger.info('No specific DD was found, try reversed order.')
         self.dock_sort_method_dsc_set(False)
 
@@ -435,7 +435,7 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             faction=self.config.FlagshipFilter_Faction if self.config.FlagshipFilter_Faction != 'default' else 'all',
             rarity=self.config.FlagshipFilter_Rarity if self.config.FlagshipFilter_Rarity != 'default' else 'common',
             extra=self.config.FlagshipFilter_Extra if self.config.FlagshipFilter_Extra != 'default' else 'enhanceable'
-            )
+        )
         self.dock_favourite_set(False)
 
         ship = self.get_common_rarity_cv()
@@ -500,7 +500,7 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             faction=self.config.VanguardFilter_Faction if self.config.VanguardFilter_Faction != 'default' else 'eagle',
             rarity=self.config.VanguardFilter_Rarity if self.config.VanguardFilter_Rarity != 'default' else 'common',
             extra=self.config.VanguardFilter_Extra if self.config.VanguardFilter_Extra != 'default' else 'can_limit_break'
-            )
+        )
         self.dock_favourite_set(False)
 
         ship = self.get_common_rarity_dd()
@@ -568,8 +568,7 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
                     raise e
             except RequestHumanTakeover as e:
                 try:
-                    if (e.args[0] == 'Hard not satisfied' and
-                            str(self.config.GemsFarming_FleetNumberInHardMode) in e.args[1]):
+                    if (e.args[0] == 'Hard not satisfied') and self.hard_mode:
                         if self.change_flagship and self.change_vanguard:
                             self.flagship_change()
                             self.vanguard_change()
@@ -582,7 +581,6 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
                 except Exception as e:
                     from module.exception import GameStuckError
                     raise GameStuckError
-
 
             # End
             if self._trigger_lv32 or self._trigger_emotion:
