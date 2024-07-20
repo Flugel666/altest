@@ -40,12 +40,14 @@ function LimitedChange(SearchResults, ResultsCount, ShipId_List,ShipTypeId_List,
 	local PossibleList, tempList = {}
 	local _char_to_cut = -1
 	if ggType == gg.TYPE_DOUBLE then _char_to_cut = -3 end
+	--因为Double转字符串后最后会有.0需切掉最后2位
 	for j = 1, ResultsCount do
 		if string.sub(tostring(SearchResults[j]['value']),1,_char_to_cut) == ShipTypeId_List[n] then
 			if tempList == nil then
 				tempList = {[1]=SearchResults[j]}
 			else table.insert(tempList, SearchResults[j]) end
 	end
+		-- 如果此数据和需改的数字一样则将此数据保存进tempList
 		if j == ResultsCount then
 			if tempList == nil then goto continue end
 			if PossibleList == nil then PossibleList = {[1]=tempList[#tempList]}
@@ -53,12 +55,14 @@ function LimitedChange(SearchResults, ResultsCount, ShipId_List,ShipTypeId_List,
 			tempList = {}
 			goto continue
 		end
+		-- 如果到了列表最后一个就将tempList的最后一个塞进PossibleList
 		if string.sub(tostring(SearchResults[j+1]['value']),1,_char_to_cut) == ShipId_List[n] then
 			if tempList == nil then goto continue end
 			if PossibleList == nil then PossibleList = {[1]=tempList[#tempList]}
 			else table.insert(PossibleList, tempList[#tempList]) end
 			tempList = {}
 		end
+		-- 如果下一项和舰船序号一样就将tempList最后一项塞进PossibleList并清空tempList
 		::continue::
 	end
 	if PossibleList == nil then k=1
@@ -69,6 +73,7 @@ function LimitedChange(SearchResults, ResultsCount, ShipId_List,ShipTypeId_List,
 			gg.getResults(1024,0,nil,nil,nil,nil,ggType)
 			gg.editAll(TargetShipTypeId_List[n], ggType)
 		end
+		--将所有PossibleList保存的地址修改为需要的数
 	end
 end
 
