@@ -38,8 +38,10 @@ end
 
 function LimitedChange(SearchResults, ResultsCount, ShipId_List,ShipTypeId_List, TargetShipTypeId_List, n, ggType)
 	local PossibleList, tempList = {}
+	local _char_to_cut = -1
+	if ggType == gg.TYPE_DOUBLE then _char_to_cut = -3 end
 	for j = 1, ResultsCount do
-		if string.sub(tostring(SearchResults[j]['value']),1,-3) == ShipTypeId_List[n] then
+		if string.sub(tostring(SearchResults[j]['value']),1,_char_to_cut) == ShipTypeId_List[n] then
 			if tempList == nil then
 				tempList = {[1]=SearchResults[j]}
 			else table.insert(tempList, SearchResults[j]) end
@@ -51,7 +53,7 @@ function LimitedChange(SearchResults, ResultsCount, ShipId_List,ShipTypeId_List,
 			tempList = {}
 			goto continue
 		end
-		if string.sub(tostring(SearchResults[j+1]['value']),1,-3) == ShipId_List[n] then
+		if string.sub(tostring(SearchResults[j+1]['value']),1,_char_to_cut) == ShipId_List[n] then
 			if tempList == nil then goto continue end
 			if PossibleList == nil then PossibleList = {[1]=tempList[#tempList]}
 			else table.insert(PossibleList, tempList[#tempList]) end
