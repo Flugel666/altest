@@ -31,12 +31,16 @@ class GGU2(Base):
         self.exit()
         return _skipped
 
-    def set_on(self, factor=200):
+    def set_on(self, func='multiplier', factor=200):
+        """
+            func : 'multiplier' or 'change_type' or 'change_attribute'
+            factor : factor used in multiplier
+        """
         _name_dict = {
-            'en' : 'Azur Lane',
-            'cn' : '碧蓝航线',
-            'jp' : 'アズールレーン',
-            'tw' : '碧藍航線'
+            'en': 'Azur Lane',
+            'cn': '碧蓝航线',
+            'jp': 'アズールレーン',
+            'tw': '碧藍航線'
         }
         _server = self.config.SERVER
         _name = _name_dict[_server]
@@ -44,8 +48,11 @@ class GGU2(Base):
         ggdata = GGData(self.config).get_data()
         for _i in range(1):
             try:
-                if ggdata['gg_on']:
+                if ggdata['gg_on'] and func == 'multiplier':
                     logger.attr('GG', 'Enabled')
+                    pass
+                elif ggdata['gg_type'] and func == 'change_type':
+                    logger.attr('Type', 'Changed')
                     pass
                 else:
                     chosen = False
@@ -104,8 +111,8 @@ class GGU2(Base):
                             ).click()
                             logger.info('Click run Scripts')
                             self.device.sleep(0.3)
-                            if self._run():
-                                return 1
+                            self.__getattribute__(func)()
+                            return 1
                         if self.d.xpath('//*[@text="取消"]').exists:
                             self.d.xpath('//*[@text="取消"]').click()
                             logger.info("Cancel exists but not running script, click cancel")
@@ -125,16 +132,28 @@ class GGU2(Base):
             finally:
                 pass
 
-    def _run(self):
+    def change_type(self):
+        ShipChanger = ChangeShip(self.config, self.device)
+        ShipChanger.PushLua()
+        ShipChanger.ChangeShipType()
+        GGData(self.config).set_data(target='gg_type', value='True')
+        self.d.app_stop(self.gg_package_name)
+        logger.hr('GG Enabled: Type Changed', level=2)
+        return 1
+
+    def change_attribute(self):
+        AttributeChanger = ChangeAttribute(self.config, self.device)
+        AttributeChanger.PushLua()
+        AttributeChanger.ChangeAttribute()
+        self.d.app_stop(self.gg_package_name)
+        return 1
+
+    def multiplier(self):
         _run = False
         _set = False
         _confirmed = False
         import os
         _repush = deep_get(self.config.data, keys='GameManager.GGHandler.RepushLua')
-        ShipChanger = ChangeShip(self.config, self.device)
-        ShipChanger.PushLua()
-        AttributeChanger = ChangeAttribute(self.config, self.device)
-        AttributeChanger.PushLua()
         if _repush:
             # os.popen(f'"toolkit/Lib/site-packages/adbutils/binaries/adb.exe" -s'
             #          f' {self.device.serial} shell mkdir /sdcard/Notes')
@@ -152,8 +171,6 @@ class GGU2(Base):
             self.device.adb_push("bin/Lua/Multiplier.lua", "/sdcard/Notes/Multiplier.lua")
             self.device.sleep(0.5)
             logger.info('Lua Pushed')
-        ShipChanger.ChangeShipType()
-        AttributeChanger.ChangeAttribute()
         while 1:
             self.device.sleep(1)
             if self.d(resourceId=f"{self.gg_package_name}:id/search_toolbar").exists:
@@ -200,6 +217,15 @@ class GGU2(Base):
                 break
             else:
                 return 0
-        logger.hr('GG Enabled', level=2)
+        logger.hr('GG Enabled: Multiplied', level=2)
         self.d.app_stop(self.gg_package_name)
         return 1
+
+
+if __name__ == '__main__':
+    from module.config.config import AzurLaneConfig
+    from module.device.device import Device
+
+    config = AzurLaneConfig('主号')
+    device = Device(config)
+    GGU2(config, device).set_on()

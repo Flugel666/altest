@@ -606,13 +606,13 @@ class AzurLaneAutoScript:
 
     def loop(self):
         gl.gl_set("g_config", self.config)
-
+        GGH=GGHandler(config=self.config, device=self.device)
         self.gg_check()
         logger.set_file_logger(self.config_name)
         logger.info(f'Start scheduler loop: {self.config_name}')
         # Try forced task_call restart to reset GG status
         self.checker.wait_until_available()
-        GGHandler(config=self.config, device=self.device).handle_restart_before_tasks()
+        GGH.handle_restart_before_tasks()
         check_fail = 0
         while 1:
             # Check update event from GUI
@@ -651,9 +651,9 @@ class AzurLaneAutoScript:
                 continue
 
             # Check GG config before a task begins (to reset temporary config), and decide to enable it.
-            GGHandler(config=self.config, device=self.device).check_config()
+            GGH.check_config()
             try:
-                GGHandler(config=self.config, device=self.device).check_then_set_gg_status(inflection.underscore(task))
+                GGH.check_then_set_gg_status(inflection.underscore(task))
                 check_fail = 0
             except GameStuckError:
                 del_cached_property(self, 'config')
