@@ -560,7 +560,7 @@ class GeneratedConfig:
     ChangeShip_Timeout = 90
     ChangeShip_Vanguard = 'downes_and_cassin_to_ca'  # downes_and_cassin_to_ca, downes_and_cassin_to_cl, custom
     ChangeShip_CapitalShip = 'cvl_to_bc'  # cvl_to_bc, cvl_to_bb, cvl_to_cv, custom
-    ChangeShip_ShipData = '106021;2;1;6;4\n107041;2;1;6;4\n206011;2;1;6;4\n107011;2;1;6;4\n\n101041;2;1;1;3\n101031;2;1;1;3'
+    ChangeShip_ShipData = '106021;2;1;6;4\n107041;2;1;6;4\n206011;2;1;6;4\n107011;2;1;6;4\n\n105011;2;1;5;19\n105021;2;1;5;19\n\n101041;2;1;1;3\n101031;2;1;1;3'
 
     # Group `ChangeAttribute`
     ChangeAttribute_Enable = False

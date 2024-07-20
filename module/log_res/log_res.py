@@ -10,7 +10,20 @@ class LogRes:
     Logres(AzurLaneConfig).<res_name>=resource_value:int
     OR  ={'Value:int, 'Limit/Total':int}:dict
     """
-    YellowCoin: list
+    YellowCoin: int
+    Oil: list
+    Coin: list
+    Gem: int
+    Pt: int
+    Cube: int
+    ActionPoint: list
+    PurpleCoin: int
+    Core: int
+    Medal: int
+    Merit: int
+    GuildCoin: int
+    ResearchPercent: int
+    AlasCoin: int
 
     def __init__(self, config):
         self.__dict__['config'] = config

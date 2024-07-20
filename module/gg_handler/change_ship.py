@@ -38,9 +38,9 @@ class ChangeShip(ModuleBase):
         elif vanguard_setting == "custom" and capitalship_setting != "custom":
             _to_split = deep_get(self.config.data, "GameManager.ChangeShip.ShipData")
         if capitalship_setting == "cvl_to_bc":
-            _to_split += "\n106021;2;1;6;4\n107041;2;1;6;4\n206011;2;1;6;4\n107011;2;1;6;4\n"
+            _to_split += "\n106021;2;1;6;4\n107041;2;1;6;4\n206011;2;1;6;4\n107011;2;1;6;4\n\n105011;2;1;5;19\n105021;2;1;5;19\n"
         elif capitalship_setting == "cvl_to_bb":
-            _to_split += "\n106021;2;1;6;5\n107041;2;1;6;5\n206011;2;1;6;5\n107011;2;1;6;5\n"
+            _to_split += "\n106021;2;1;6;5\n107041;2;1;6;5\n206011;2;1;6;5\n107011;2;1;6;5\n\n105011;2;1;5;19\n105021;2;1;5;19\n"
         elif capitalship_setting == "cvl_to_cv":
             _to_split += "\n106021;2;1;6;7\n107041;2;1;6;7\n206011;2;1;6;7\n107011;2;1;6;7\n"
         elif capitalship_setting == "custom":
