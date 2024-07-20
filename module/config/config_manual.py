@@ -13,19 +13,20 @@ class ManualConfig:
     > OpsiCrossMonth
     > Commission > Tactical > Research
     > Exercise
+    > SmallGame
     > Dorm > Meowfficer > Guild > Gacha
     > Reward
     > ShopFrequent > ShopOnce > Shipyard > Freebies > Minigame
     > OpsiExplore
-    > OpsiAshBeacon
     > OpsiDaily > OpsiShop > OpsiVoucher
     > OpsiAbyssal > OpsiStronghold > OpsiObscure > OpsiArchive
-    > Daily > Hard > OpsiAshBeacon > OpsiAshAssist  > OpsiMonthBoss
-    > SmallGame
+    > OpsiAshBeacon > OpsiAshAssist
+    > Daily > Hard > OpsiMonthBoss
     > Sos > EventSp > EventA > EventB > EventC > EventD
     > RaidDaily > CoalitionSp > WarArchives > MaritimeEscort
     > Event > Event2 > Event3 > Raid > Coalition 
-    > ResearchFarmingSetting > ResearchFarm > ResearchFarm2 > ResearchFarm3 > ResearchFarm4 > ResearchFarm5 > ResearchFarm6
+    > ResearchFarmingSetting > ResearchFarm > ResearchFarm2 
+    > ResearchFarm3 > ResearchFarm4 > ResearchFarm5 > ResearchFarm6
     > Main > Main2 > Main3
     > OpsiMeowfficerFarming
     > GemsFarming
