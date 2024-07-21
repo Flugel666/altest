@@ -24,6 +24,9 @@ class GGHandler:
         self.method = deep_get(self.config.data,
                                'GameManager.GGHandler.GGMethod',
                                default='screenshot')
+        ggu2 = GGU2(config=self.config, device=self.device)
+        self.GGData = GGData(config=self.config)
+        self.gg = ggu2
 
     def restart(self, crashed=False):
         from module.handler.login import LoginHandler
@@ -84,7 +87,7 @@ class GGHandler:
         # elif self.method == 'u2':
         #     return \
         #         GGU2(config=self.config, device=self.device).skip_error()
-        return GGU2(config=self.config, device=self.device).skip_error()  # Not support screenshot anymore
+        return self.gg.skip_error()  # Not support screenshot anymore
 
     def check_config(self) -> dict:
         """
@@ -97,9 +100,9 @@ class GGHandler:
         """
         gg_enable = deep_get(d=self.config.data, keys='GameManager.GGHandler.Enabled', default=False)
         gg_auto = deep_get(d=self.config.data, keys='GameManager.GGHandler.AutoRestartGG', default=False)
-        GGData(self.config).set_data(target='gg_enable', value=gg_enable)
-        GGData(self.config).set_data(target='gg_auto', value=gg_auto)
-        gg_data = GGData(self.config).get_data()
+        self.GGData.set_data(target='gg_enable', value=gg_enable)
+        self.GGData.set_data(target='gg_auto', value=gg_auto)
+        gg_data = self.GGData.get_data()
         logger.info(f'GG status:')
         logger.info(
             f'Enabled={gg_data["gg_enable"]} AutoRestart={gg_data["gg_auto"]} Current stage={gg_data["gg_on"]} Type Changed={gg_data["gg_type"]}')
@@ -125,11 +128,11 @@ class GGHandler:
         """
         Handle the restart errors of GG.
         """
-        gg_data = GGData(config=self.config).get_data()
+        gg_data = self.GGData.get_data()
         gg_enable = gg_data['gg_enable']
         if gg_enable:
-            GGData(config=self.config).set_data(target='gg_on', value=False)
-            GGData(config=self.config).set_data(target='gg_type', value=False)
+            self.GGData.set_data(target='gg_on', value=False)
+            self.GGData.set_data(target='gg_type', value=False)
             logger.info(f'GG status:')
             logger.info(
                 f'Enabled={gg_data["gg_enable"]} AutoRestart={gg_data["gg_auto"]} Current stage={gg_data["gg_on"]} Type Changed={gg_data["gg_type"]}')
@@ -140,7 +143,7 @@ class GGHandler:
         """
         Force restart the game to reset GG status to False
         """
-        gg_data = GGData(self.config).get_data()
+        gg_data = self.GGData.get_data()
         if gg_data['gg_enable'] and gg_data['gg_on']:
             logger.hr('Disabling GG')
             self.restart()
@@ -152,7 +155,7 @@ class GGHandler:
         Args:
             mode: The multiplier status when finish the check.
         """
-        gg_data = GGData(self.config).get_data()
+        gg_data = self.GGData.get_data()
         if gg_data['gg_enable']:
             gg_auto = mode if deep_get(d=self.config.data,
                                        keys='GameManager.GGHandler.AutoRestartGG',
@@ -166,6 +169,7 @@ class GGHandler:
                     self.change_ship_type(task=self.task)
                 if not gg_data['gg_on']:
                     self.set(True)
+                self.gg.exit()
             elif gg_data['gg_on']:
                 self.gg_reset()
 
@@ -187,8 +191,8 @@ class GGHandler:
         if ocr >= limit:
             logger.critical('There''s high chance that GG is on, restart to disable it')
             from module.gg_handler.gg_data import GGData
-            GGData(self.config).set_data(target='gg_on', value=False)
-            GGData(self.config).set_data(target='gg_enable', value=True)
+            self.GGData.set_data(target='gg_on', value=False)
+            self.GGData.set_data(target='gg_enable', value=True)
             deep_set(d=self.config.data, keys='GameManager.GGHandler.Enabled', value=True)
             deep_set(d=self.config.data, keys='GameManager.GGHandler.AutoRestartGG', value=True)
             self.config.task_call('Restart')
@@ -201,7 +205,7 @@ class GGHandler:
         Returns:
             bool: If it needs restart first
         """
-        gg_data = GGData(self.config).get_data()
+        gg_data = self.GGData.get_data()
         if (deep_get(d=self.config.data,
                      keys='GameManager.GGHandler.RestartEverytime',
                      default=True)
@@ -309,28 +313,28 @@ class GGHandler:
     def change_ship_type(self, task):
         if task == 'gems_farming':
             logger.hr('GG Ship Type', level=2)
-            success = timeout(GGU2(config=self.config, device=self.device).set_on,
+            success = timeout(self.gg.set_on,
                               timeout_sec=deep_get(self.config.data, "GameManager.GGHandler.Timeout"),
                               func='change_type',
                               factor=self.factor)
-            # success = GGU2(config=self.config, device=self.device).set_on('change_type')
+            # success = self.gg.set_on('change_type')
             return success
         return True
 
     def change_attribute(self):
         logger.hr('GG Attribute', level=2)
-        success = timeout(GGU2(config=self.config, device=self.device).set_on,
+        success = timeout(self.gg.set_on,
                           timeout_sec=deep_get(self.config.data, "GameManager.GGHandler.Timeout"),
                           func='change_attribute',
                           factor=self.factor)
-        # GGU2(config=self.config, device=self.device).set_on('change_attribute')
+        # self.gg.set_on('change_attribute')
         return True
 
     def multiplier(self):
         logger.hr('GG Multiplier', level=2)
-        success = timeout(GGU2(config=self.config, device=self.device).set_on,
+        success = timeout(self.gg.set_on,
                           timeout_sec=deep_get(self.config.data, "GameManager.GGHandler.Timeout"),
                           func='multiplier',
                           factor=self.factor)
-        # success = GGU2(config=self.config, device=self.device).set_on(factor=self.factor)
+        # success = self.gg.set_on(factor=self.factor)
         return success

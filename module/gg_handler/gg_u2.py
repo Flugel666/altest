@@ -136,8 +136,13 @@ class GGU2(Base):
         ShipChanger = ChangeShip(self.config, self.device)
         ShipChanger.PushLua()
         ShipChanger.ChangeShipType()
-        GGData(self.config).set_data(target='gg_type', value='True')
-        self.d.app_stop(self.gg_package_name)
+        try:
+            self.d.xpath('//*[@text="确定"]').click()
+            GGData(self.config).set_data(target='gg_on', value=True)
+        finally:
+            pass
+        GGData(self.config).set_data(target='gg_type', value=True)
+        # self.d.app_stop(self.gg_package_name)
         logger.hr('GG Enabled: Type Changed', level=2)
         return 1
 
@@ -145,7 +150,12 @@ class GGU2(Base):
         AttributeChanger = ChangeAttribute(self.config, self.device)
         AttributeChanger.PushLua()
         AttributeChanger.ChangeAttribute()
-        self.d.app_stop(self.gg_package_name)
+        try:
+            self.d.xpath('//*[@text="确定"]').click()
+            GGData(self.config).set_data(target='gg_on', value=True)
+        finally:
+            pass
+        # self.d.app_stop(self.gg_package_name)
         return 1
 
     def multiplier(self):
@@ -209,7 +219,7 @@ class GGU2(Base):
                     GGData(self.config).set_data(target='gg_on', value=True)
                 finally:
                     pass
-                GGData(self.config).set_data(target='gg_on', value='True')
+                GGData(self.config).set_data(target='gg_on', value=True)
                 logger.attr('GG', 'Enabled')
                 logger.info("Close the script")
             self.d.wait_timeout = 3
@@ -218,7 +228,7 @@ class GGU2(Base):
             else:
                 return 0
         logger.hr('GG Enabled: Multiplied', level=2)
-        self.d.app_stop(self.gg_package_name)
+        # self.d.app_stop(self.gg_package_name)
         return 1
 
 
