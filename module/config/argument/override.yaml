@@ -501,3 +501,7 @@ Dashboard:
     Color: ^AAAAAA
   ResearchPercent:
     Color: ^00AA00
+  PlayerLevel:
+    Color: ^FFAA33
+  PlayerExp:
+    Color: ^FFAA33

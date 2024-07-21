@@ -3575,6 +3575,46 @@
       "help": "ResearchPercent.Record.help"
     }
   },
+  "PlayerLevel": {
+    "_info": {
+      "name": "PlayerLevel._info.name",
+      "help": "PlayerLevel._info.help"
+    },
+    "Value": {
+      "name": "PlayerLevel.Value.name",
+      "help": "PlayerLevel.Value.help"
+    },
+    "Color": {
+      "name": "PlayerLevel.Color.name",
+      "help": "PlayerLevel.Color.help"
+    },
+    "Record": {
+      "name": "PlayerLevel.Record.name",
+      "help": "PlayerLevel.Record.help"
+    }
+  },
+  "PlayerExp": {
+    "_info": {
+      "name": "PlayerExp._info.name",
+      "help": "PlayerExp._info.help"
+    },
+    "Value": {
+      "name": "PlayerExp.Value.name",
+      "help": "PlayerExp.Value.help"
+    },
+    "Limit": {
+      "name": "PlayerExp.Limit.name",
+      "help": "PlayerExp.Limit.help"
+    },
+    "Color": {
+      "name": "PlayerExp.Color.name",
+      "help": "PlayerExp.Color.help"
+    },
+    "Record": {
+      "name": "PlayerExp.Record.name",
+      "help": "PlayerExp.Record.help"
+    }
+  },
   "AutoRestart": {
     "_info": {
       "name": "AutoRestart._info.name",
@@ -3697,6 +3737,8 @@
       "Core": "Core Data",
       "GuildCoin": "Guild Coin",
       "ResearchPercent": "Gui.Overview.ResearchPercent",
+      "PlayerLevel": "Gui.Overview.PlayerLevel",
+      "PlayerExp": "Gui.Overview.PlayerExp",
       "Log": "Log",
       "Running": "Running",
       "Pending": "Pending",
